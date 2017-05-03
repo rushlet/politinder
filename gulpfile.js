@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
+const webpack = require('gulp-webpack');
 
 gulp.task('html', function(){
 		return gulp.src('source/html/**/*.html')
@@ -14,11 +15,9 @@ gulp.task('css', function(){
 });
 
 gulp.task('js', function(){
-    return gulp.src('source/js/**/*.js')
-    .pipe(babel({
-        presets: ['es2015']
-    }))
-    .pipe(gulp.dest('compiled/js/'))
+		return gulp.src('source/js/**/*.js')
+		.pipe(webpack(require('./webpack.config.js')))
+		.pipe(gulp.dest('compiled/js'));
 });
 
 gulp.task('default', ['html', 'css', 'js']);
