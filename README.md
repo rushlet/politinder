@@ -7,5 +7,7 @@ Run `gulp` to build.
 
 For the scraper:
 
-```easy_install pip  
-pip install beautifulsoup4  ```
+```
+easy_install pip  
+pip install beautifulsoup4
+```
