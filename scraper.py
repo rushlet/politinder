@@ -12,6 +12,7 @@ soup = BeautifulSoup(page, 'html.parser')
 table = soup.find('table', attrs={'class': 'mps'})
 test = table.text.strip() # strip() is used to remove starting and trailing
 
+counter = 0
 mps = []
 for row in table.findAll('tr'):
     if 'headings' not in row.attrs['class']:
@@ -38,6 +39,9 @@ for row in table.findAll('tr'):
         mp.append(mp_party)
         mp.append(mp_policy_table)
         mps.append(mp)
-        break
+        counter = counter + 1
+        print counter 
+        print mp_name
 
-print json.dumps(mps)
+with open('data.txt', 'w') as outfile:
+    json.dump(mps, outfile)
