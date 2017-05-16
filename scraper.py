@@ -43,5 +43,5 @@ for row in table.findAll('tr'):
         print counter 
         print mp_name
 
-with open('data.txt', 'w') as outfile:
+with open('data.json', 'w') as outfile:
     json.dump(mps, outfile)
