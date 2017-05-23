@@ -2,10 +2,10 @@ const fs = require('fs');
 
 const rawMPData = JSON.parse(fs.readFileSync('mp_data.json', 'utf-8'));
 const rawPolicyData = JSON.parse(fs.readFileSync('policy_data.json', 'utf-8'));
-const invertedPolicies = JSON.parse(fs.readFileSync('inverted_policies.json', 'utf-8'));
+const invertedPolicies = JSON.parse(fs.readFileSync('policies_to_invert.json', 'utf-8'));
 
 const processedMPs= [];
-rawMPData.forEach(rawMP => {
+for (const rawMP of rawMPData) {
     const mp = {
         name: rawMP[1],
         party: rawMP[2],
@@ -18,7 +18,8 @@ rawMPData.forEach(rawMP => {
     });
 
     processedMPs.push(mp);
-});
+    break;
+}
 
 console.log(processedMPs[0]);
 
@@ -35,7 +36,7 @@ function normalisePolicy(policy) {
     }
     
     if (invertedPolicies.includes(policy.id)) {
-        policy.agreement = invertPercentage(policy.agreement);
+        normalisedPolicy.agreement = invertPercentage(policy.agreement);
     }
     else {
         normalisedPolicy.agreement = policy.agreement;
@@ -45,8 +46,9 @@ function normalisePolicy(policy) {
 }
 
 function invertPercentage(percentage) {
-    console.log('invert!!!!');
-    const decimal = parseFloat(percentage) / 100;
-    return 100 / decimal;
+    const decimal = parseFloat(percentage);
+    const invertedDecimal = 100 - decimal;
+    const invertedPercent = invertedDecimal + '%';
+    return invertedPercent;
 }
 
