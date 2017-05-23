@@ -3,6 +3,10 @@ const sass = require('gulp-sass');
 const babel = require('gulp-babel');
 const webpack = require('gulp-webpack');
 
+gulp.task('watch', function () {
+    gulp.watch('source/**/*.*', ['default']);
+});
+
 gulp.task('html', function(){
 		return gulp.src('source/html/**/*.html')
 		.pipe(gulp.dest('compiled/html/'));
