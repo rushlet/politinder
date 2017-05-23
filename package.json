@@ -29,6 +29,7 @@
     "webpack": "^2.4.1"
   },
   "dependencies": {
+    "d3-request": "^1.0.5",
     "swing": "^4.3.0"
   }
 }
