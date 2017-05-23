@@ -1,0 +1,35 @@
+{
+    "economy": {
+        "name": "Economy"
+    },
+    "health": {
+        "name": "Health"
+    },
+    "immigration": {
+        "name": "Immigration"
+    },
+    "education": {
+        "name": "Education"
+    },
+    "tax-and-spending": {
+        "name": "Tax and Spending"
+    },
+    "housing": {
+        "name": "Housing"
+    },
+    "environment": {
+        "name": "Energy and Environment"
+    },
+    "foreign-and-defense": {
+        "name": "Foreign and Defense"
+    },
+    "crime": {
+        "name": "Crime"
+    },
+    "employment": {
+        "name": "Employment"
+    },
+    "transport": {
+        "name": "Transport"
+    }
+}
