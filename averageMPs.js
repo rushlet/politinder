@@ -26,6 +26,7 @@ Object.keys(averageMPs).forEach(mpId => {
     Object.keys(mp).forEach(policyId => {
         var policy = mp[policyId];
         policy['agreementMean'] = policy.agreementSum / policy.sampleSize;
+        policy['agreementBin'] = policy['agreementMean'] >= 50 ? true : false
     });
 });
 
