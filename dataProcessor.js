@@ -25,15 +25,19 @@ fs.writeFileSync('mps.json', JSON.stringify(processedMPs));
 function policyFromArray(policy) {
     return {
         id: policy[0],
-        agreement: policy[1]
+        agreement: percentageToNumber(policy[1])
     }
+}
+
+function percentageToNumber(policyAgreement) {
+    return parseFloat(policyAgreement);
 }
 
 function normalisePolicy(policy) {
     const normalisedPolicy = {
         id: policy.id,
     }
-    
+
     if (invertedPolicies.includes(policy.id)) {
         normalisedPolicy.agreement = invertPercentage(policy.agreement);
     }
@@ -45,9 +49,6 @@ function normalisePolicy(policy) {
 }
 
 function invertPercentage(percentage) {
-    const decimal = parseFloat(percentage);
-    const invertedDecimal = 100 - decimal;
-    const invertedPercent = invertedDecimal// + '%';
-    return invertedPercent;
+    const invertedDecimal = 100 - percentage;
+    return invertedDecimal;
 }
-
