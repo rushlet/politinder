@@ -20,7 +20,7 @@
         "category": "environment"
     },
     "Apprenticeships": {
-        "category": "employment"    
+        "category": "employment"
     },
     "Assisted Dying": {
         "category": "health"
@@ -33,7 +33,7 @@
         "category": "economy"
     },
     "Ban fox hunting": {
-        "category": "environment"    
+        "category": "environment"
     },
     "Bankers' Bonus Tax": {
         "name": "Introduce Bankers' Bonus Tax",
@@ -52,7 +52,7 @@
         "category": "foreign-and-defense"
     },
     "Corporal punishment of children - Against": {
-        "name": "Ban All Corporal Punishment of Children",
+        "name": "Corporal Punishment of Children",
         "category": "crime"
     },
     "Crossrail - In favour": {
@@ -60,130 +60,286 @@
         "category": "transport"
     },
     "Cull Badgers": {
-        "category": "environment"    
+        "category": "environment"
     },
     "Do more to help refugees inclding children": {
         "name": "Do More to Help Refugees Including Children",
         "category": "immigration"
     },
     "Encourage and incentivise saving": {
-        "category": "economy"    
+        "category": "economy"
     },
     "End support for some 16-18 yr olds in education": {
-        "category": "education"    
+        "category": "education"
     },
     "Energy Prices - More Affordable": {
         "category": "environment"
     },
-    "English Votes on English Laws etc.": {
-        "    
+    "Excess Bedroom Benefit Penalty for Social Tenants": {
+        "name" : "Bedroom Tax",
+        "category" : "housing"
     },
-    "Equal Number of Electors Per Constituency - for": {},
-    "European Union - For": {},
-    "Excess Bedroom Benefit Penalty for Social Tenants": {},
-    "Extend Right to Buy to Housing Associations": {},
-    "Fixed Term Parliaments": {},
-    "For the UK to Remain a Member of the EU": {},
-    "Foundation hospitals - In favour": {},
-    "Fox hunting - Ban": {},
-    "Freedom of Information Bill 2000 - Strengthen": {},
-    "Fully Elected House of Lords": {},
-    "Further Devolution to Scotland": {},
-    "Further devolution to Wales": {},
-    "GP Commissioning in the NHS": {},
-    "Gambling - Against permissiveness": {},
-    "HS2 - In Favour": {},
-    "Higher taxes on alcoholic drinks": {},
-    "Higher taxes on banks": {},
-    "Higher taxes on sugary drinks": {},
-    "Hold a UK referendum on Lisbon EU Treaty": {},
-    "Homosexuality - Equal rights": {},
-    "Human Rights and Equality": {},
-    "Identity cards - For introduction": {},
-    "In Favour of Mass Surveillance": {},
-    "Incentivise Low Carbon Electricity Generation": {},
-    "Incentivise membership of press regulator": {},
-    "Increase Air Passenger Duty": {},
-    "Increase VAT": {},
-    "Increase the income tax - tax free allowance": {},
-    "Inheritance Tax": {},
-    "Iraq 2003 - For the invasion": {},
-    "Iraq Investigation - Necessary": {},
-    "Jobs Guarantee for Long Term Young Unemployed": {},
-    "Limit NHS Foundation Trust Private Patient Income": {},
-    "Localise Council Tax Support": {},
-    "Lower taxes on petrol & diesel for motor vehicles": {},
-    "Make High Earners Pay Market Rent for Council Home": {},
-    "Make it easier to trigger a new election for an MP": {},
-    "Mansion Tax": {},
-    "Mass Retention of Communications Data": {},
-    "Measures to reduce tax avoidance. ": {},
-    "Member trustees on pension boards": {},
-    "Merge Police and Fire under Police & Crime Cmmr": {},
-    "Military Action against Daesh / ISIL ": {},
-    "Ministers Can Intervene in Coroners' Inquests": {},
-    "Minumum Wage": {},
-    "More Generous Benefits for Ill and Disabled": {},
-    "More funds for social care": {},
-    "More powers for local councils": {},
-    "No Polls Clash With MP Election System Referendum": {},
-    "No detention without charge or trial": {},
-    "Nuclear power - For": {},
-    "Parliamentary scrutiny - Reduce": {},
-    "Pension auto-enrolment - For": {},
-    "Phase out of Tenancies for Life ": {},
-    "Police and Crime Commissioners": {},
-    "Post office - in favour of Government policy": {},
-    "Post office closures - against": {},
-    "Prevent abuse of zero hours contracts": {},
-    "Privatise Royal Mail": {},
-    "Promote Occupational Pensions": {},
-    "Proportional Representation Voting System - For ": {},
-    "Protesting near Parliament - Unrestricted": {},
-    "Public Ownership of Railways": {},
-    "Rail Fares - Lower": {},
-    "Recreational drugs - Against legalization": {},
-    "Reduce Spending on Welfare Benefits": {},
-    "Reduce capital gains tax": {},
-    "Reduce central funding for local government": {},
-    "Reduce the rate of Corporation Tax": {},
-    "Reducing the number of MPs - for": {},
-    "Referendum on Alternative Vote for MP Elections": {},
-    "Referendum on the UK's membership of the EU - For": {},
-    "Referendums for Directly Elected City Mayors": {},
-    "Register of Lobbyists": {},
-    "Regulation of Shale Gas Extraction": {},
-    "Remove Hereditary Peers from the House of Lords": {},
-    "Replace Higher Education Grants with Loans": {},
-    "Require Pub Companies to Offer Rent Only Leases": {},
-    "Restrict 3rd party campaigners during elections": {},
-    "Restrict Scope of Legal Aid": {},
-    "Retain funds from council house sales locally": {},
-    "Retention of Business Rates by Local Government": {},
-    "Right for EU Citizens in the UK to Stay": {},
-    "Right to strike": {},
-    "Same Sex Marriage - for": {},
-    "Schools - Greater Autonomy": {},
-    "Sell England's Public Forests": {},
-    "Smoking ban - In favour": {},
-    "State control of bus services": {},
-    "Stop climate change": {},
-    "Stronger Military Covenant": {},
-    "Tax Incentives for Companies Investing in Assets": {},
-    "Teach children about drugs, sexuality and health ": {},
-    "Termination of pregnancy - against": {},
-    "Terrorism laws - For": {},
-    "The UK should not ratify the Lisbon Treaty": {},
-    "Tougher on illegal immigration": {},
-    "Trade Union Regulation": {},
-    "Transexuality - Against legal recognition": {},
-    "Transparency of Parliament": {},
-    "Trident replacement - In favour": {},
-    "Tuition fees - Set Upper Limit at \u00a39,000 per Year": {},
-    "University Tuition Fees - For": {},
-    "University education fees - Should be free": {},
-    "Use of UK Military Forces Overseas": {},
-    "Voting age - Reduce to 16": {},
-    "War - Parliamentary authority not necessary": {},
-    "Welfare benefits ought rise in line with prices": {}
+    "Fixed Term Parliaments": {
+        "category" : "parliament"
+    },
+    "For the UK to Remain a Member of the EU": {
+        "category" : "foreign-and-defense"
+    },
+    "Fox hunting - Ban": {
+        "name" : "Fox Hunting Ban",
+        "category" : "Environment"
+    },
+    "Freedom of Information Bill 2000 - Strengthen": {
+        "name" : "Strengthen the Freedom of Information Act 2000",
+        "category" : "parliament"
+    },
+    "Fully Elected House of Lords": {
+        "category" : "parliament"
+    },
+    "Further Devolution to Scotland": {
+        "category" : "parliament"
+    },
+    "Further devolution to Wales": {
+        "category" : "parliament"
+    },
+    "GP Commissioning in the NHS": {
+        "category" : "health"
+    },
+    "Higher taxes on alcoholic drinks": {
+        "category" : "tax-and-spending"
+    },
+    "Higher taxes on banks": {
+        "category" : "tax-and-spending"
+    },
+    "Higher taxes on sugary drinks": {
+        "category" : "tax-and-spending"
+    },
+    "Homosexuality - Equal rights": {
+        "name" : "Equal Rights for Gay and Lesbians",
+        "category" : "civil-rights"
+    },
+    "Human Rights and Equality": {
+        "category" : "civil-rights"
+    },
+    "Identity cards - For introduction": {
+        "category" : "civil-rights"
+    },
+    "In Favour of Mass Surveillance": {
+        "category" : "civil-rights"
+    },
+    "Incentivise Low Carbon Electricity Generation": {
+        "category" : "Environment"
+    },
+    "Increase VAT": {
+        "category" : "tax-and-spending"
+    },
+    "Increase the income tax - tax free allowance": {
+        "category" : "tax-and-spending"
+    },
+    "Inheritance Tax": {
+        "category" : "tax-and-spending"
+    },
+    "Jobs Guarantee for Long Term Young Unemployed": {
+        "category" : "employment"
+    },
+    "Limit NHS Foundation Trust Private Patient Income": {
+        "category" : "health"
+    },
+    "Localise Council Tax Support": {
+        "category" : "tax-and-spending"
+    },
+    "Lower taxes on petrol & diesel for motor vehicles": {
+        "category" : "tax-and-spending"
+    },
+    "Make High Earners Pay Market Rent for Council Home": {
+        "category" : "tax-and-spending"
+    },
+    "Make it easier to trigger a new election for an MP": {
+        "category" : "parliament"
+    },
+    "Mansion Tax": {
+        "category" : "tax-and-spending"
+    },
+    "Mass Retention of Communications Data": {
+        "category" : "foreign-and-defense"
+    },
+    "Measures to reduce tax avoidance. ": {
+        "category" : "tax-and-spending"
+    },
+    "Merge Police and Fire under Police & Crime Cmmr": {
+        "name" : "Merge Police and Fire under Police & Crime Commisioners",
+        "category" : "crime"
+    },
+    "Military Action against Daesh / ISIL ": {
+        "category" : "foreign-and-defense"
+    },
+    "Minumum Wage": {
+        "name" : "Increase Minimum Wage",
+        "category" : "civil-rights"
+    },
+    "More Generous Benefits for Ill and Disabled": {
+        "category" : "civil-rights"
+    },
+    "More funds for social care": {
+        "category" : "civil-rights"
+    },
+    "More powers for local councils": {
+        "category" : "parliament"
+    },
+    "No detention without charge or trial": {
+        "category" : "civil-rights"
+    },
+    "Nuclear power - For": {
+        "name" : "Pro Nuclear Power",
+        "category" : "environment"
+    },
+    "Parliamentary scrutiny - Reduce": {
+        "name" : "Reduce Parliamentary Scrutiny",
+        "category" : "parliament"
+    },
+    "Police and Crime Commissioners": {
+        "category" : "crime"
+    },
+    "Post office closures - against": {
+        "name" : "Post Offices should be Closed",
+        "category" : "economy"
+    },
+    "Prevent abuse of zero hours contracts": {
+        "category" : "civil-rights"
+    },
+    "Privatise Royal Mail": {
+        "category" : "economy"
+    },
+    "Proportional Representation Voting System - For ": {
+        "name" : "For Proportional Representation Voting System",
+        "category" : "parliament"
+    },
+    "Protesting near Parliament - Unrestricted": {
+        "name" : "Unrestricted Protesting near Parliament",
+        "category" : "civil-rights"
+    },
+    "Public Ownership of Railways": {
+        "category" : "transport"
+    },
+    "Rail Fares - Lower": {
+        "name" : "Lower Rail Fares",
+        "category" : "transport"
+    },
+    "Recreational drugs - Against legalization": {
+        "name" : "Recreational Drugs should be Legalized",
+        "category" : "crime"
+    },
+    "Reduce Spending on Welfare Benefits": {
+        "category" : "tax-and-spending"
+    },
+    "Reduce capital gains tax": {
+        "category" : "tax-and-spending"
+    },
+    "Reduce central funding for local government": {
+        "category" : "tax-and-spending"
+    },
+    "Reduce the rate of Corporation Tax": {
+        "category" : "tax-and-spending"
+    },
+    "Reducing the number of MPs - for": {
+        "name" : "Reduce the Number of MPs",
+        "category" : "parliament"
+    },
+    "Referendums for Directly Elected City Mayors": {
+        "category" : "parliament"
+    },
+    "Register of Lobbyists": {
+        "category" : "parliament"
+    },
+    "Regulation of Shale Gas Extraction": {
+        "category" : "environment"
+    },
+    "Remove Hereditary Peers from the House of Lords": {
+        "category" : "parliament"
+    },
+    "Replace Higher Education Grants with Loans": {
+        "category" : "education"
+    },
+    "Restrict Scope of Legal Aid": {
+        "category" : "civil-rights"
+    },
+    "Right for EU Citizens in the UK to Stay": {
+        "category" : "foreign-and-defense"
+    },
+    "Right to strike": {
+        "category" : "civil-rights"
+    },
+    "Same Sex Marriage - for": {
+        "name" : "Pro Same Sex Marriage",
+        "category" : "civil-rights"
+    },
+    "Schools - Greater Autonomy": {
+        "name" : "Greater Autonomy for Schools",
+        "category" : "education"
+    },
+    "Sell England's Public Forests": {
+        "category" : "environment"
+    },
+    "State control of bus services": {
+        "category" : "parliament"
+    },
+    "Stop climate change": {
+        "category" : "environment"
+    },
+    "Stronger Military Covenant": {
+        "category" : "foreign-and-defense"
+    },
+    "Tax Incentives for Companies Investing in Assets": {
+        "category" : "tax-and-spending"
+    },
+    "Teach children about drugs, sexuality and health ": {
+        "category" : "education"
+    },
+    "Termination of pregnancy - against": {
+        "name" : "Termination of Pregnancy",
+        "category" : "health"
+    },
+    "Terrorism laws - For": {
+        "name" : "Stronger Terrorism Laws",
+        "category" : "foreign-and-defense"
+    },
+    "Tougher on illegal immigration": {
+        "category" : "foreign-and-defense"
+    },
+    "Trade Union Regulation": {
+        "category" : "parliament"
+    },
+    "Transexuality - Against legal recognition": {
+        "name" : "Transexuality should be Legally Recognised",
+        "category" : "civil-rights"
+    },
+    "Transparency of Parliament": {
+        "category" : "parliament"
+    },
+    "Trident replacement - In favour": {
+        "name" : "Trident Replacement",
+        "category" : "foreign-and-defense"
+    },
+    "Tuition fees - Set Upper Limit at \u00a39,000 per Year": {
+        "name" : "Limit University Tuition Fees to £9,000 per year",
+        "category" : "education"
+    },
+    "University education fees - Should be free": {
+        "name" : "Univeristy Tuition should be Free",
+        "category" : "education"
+    },
+    "Use of UK Military Forces Overseas": {
+        "category" : "foreign-and-defense"
+    },
+    "Voting age - Reduce to 16": {
+        "name" : "Reduce the Voting Age to 16",
+        "category" : "civil-rights"
+    },
+    "War - Parliamentary authority not necessary": {
+        "name" : "Parliamentary Authorisation should not be needed for War",
+        "category" : "foreign-and-defense"
+    },
+    "Welfare benefits ought rise in line with prices": {
+        "category" : "tax-and-spending"
+    }
 }

@@ -31,5 +31,11 @@
     },
     "transport": {
         "name": "Transport"
+    },
+    "parliament": {
+        "name": "Parliament"
+    },
+    "civil-rights": {
+        "name": "Civil Rights"
     }
 }
