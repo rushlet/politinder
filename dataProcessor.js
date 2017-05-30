@@ -18,10 +18,9 @@ for (const rawMP of rawMPData) {
     });
 
     processedMPs.push(mp);
-    break;
 }
 
-console.log(processedMPs[0]);
+fs.writeFileSync('mps.json', JSON.stringify(processedMPs));
 
 function policyFromArray(policy) {
     return {
@@ -48,7 +47,7 @@ function normalisePolicy(policy) {
 function invertPercentage(percentage) {
     const decimal = parseFloat(percentage);
     const invertedDecimal = 100 - decimal;
-    const invertedPercent = invertedDecimal + '%';
+    const invertedPercent = invertedDecimal// + '%';
     return invertedPercent;
 }
 
