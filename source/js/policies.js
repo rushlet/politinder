@@ -4,11 +4,11 @@ export default function outputPolicies(error, data) {
         return;
     }
     console.log('data', data);
-
     const ul = document.getElementsByClassName('policies-list')[0];
-    for (let i = 0; i < data.length; i++) {
+    Object.keys(data).forEach(key => {
+        const policy = data[key];
         let li = document.createElement('li');
-        li.innerHTML = `<strong>${data[i].title}</strong> : ${data[i].text}` ;
+        li.innerHTML = `<strong>${data[key].name || key}</strong> : ${data[key].description}` ;
         ul.appendChild(li);
-    }
+    });
 };
