@@ -23,10 +23,10 @@ function ready(error, data) {
       stack.createCard(targetElement);
     });
 
-    const parties = ['CON', 'DUP', 'Green', 'Independent', 'LDem', 'Lab', 'PC', 'SDLP', 'SF', 'SNP', 'UKIP', 'UUP'];
+    const parties = ['Con', 'DUP', 'Green', 'Independent', 'LDem', 'Lab', 'PC', 'SDLP', 'SF', 'SNP', 'UKIP', 'UUP'];
 
     const userProfile = {
-        'CON' : 0,
+        'Con' : 0,
         'DUP' : 0,
         'Green' : 0,
         'Independent': 0,
