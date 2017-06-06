@@ -4,30 +4,58 @@ import * as d3Request from 'd3-request';
 
 d3Request.json('../../../policies.json', function(error, policies) {
     d3Request.json('../../../categories.json', function(error, categories) {
-        ready(error, {
-            policies: policies,
-            categories: categories
-        })
+        d3Request.json('../../../average_mps.json', function(error, policyAgreement) {
+            ready(error, {
+                policies: policies,
+                categories: categories,
+                policyAgreement: policyAgreement
+            })
+        });
     });
 });
 
 function ready(error, data) {
-    console.log('ready called');
-    console.log(data.policies, data.categories);
     outputPolicies(error, data.policies, data.categories);
-    console.log(document.querySelectorAll('.policies-list li'));
     const cards = Array.from(document.querySelectorAll('.policies-list li'));
 
-    console.log('cards', cards);
     const stack = Swing.Stack();
-    console.log(stack);
     cards.forEach((targetElement) => {
       stack.createCard(targetElement);
     });
 
-    stack.on('throwout', function (e) {
-        console.log(e.target.innerText || e.target.textContent, 'has been thrown out of the stack to the', e.throwDirection, 'direction.');
+    const parties = ['CON', 'DUP', 'Green', 'Independent', 'LDem', 'Lab', 'PC', 'SDLP', 'SF', 'SNP', 'UKIP', 'UUP'];
 
+    const userProfile = {
+        'CON' : 0,
+        'DUP' : 0,
+        'Green' : 0,
+        'Independent': 0,
+        'LDem': 0,
+        'Lab': 0,
+        'PC': 0,
+        'SDLP': 0,
+        'SF': 0,
+        'SNP': 0,
+        'UKIP': 0,
+        'UUP': 0
+    };
+
+    stack.on('throwout', function (e) {
+        let doesUserAgree = true;
+        let currentPolicy = e.target.dataset['policyId'];
+        if(e.throwDirection === 'LEFT') {
+            doesUserAgree = false;
+        }
+        parties.forEach(function(party){
+            if(data.policyAgreement[party]) {
+                if(data.policyAgreement[party][currentPolicy]) {
+                    if (data.policyAgreement[party][currentPolicy].agreementBin === doesUserAgree) {
+                        userProfile[party] ++;
+                    }
+                }
+            }
+        });
+        console.log(userProfile);
         e.target.classList.add('out-of-deck');
     });
 
