@@ -1,5 +1,6 @@
 import * as Swing from 'swing';
 import outputPolicies from './policies.js'
+import displayResults from './displayResults.js'
 import * as d3Request from 'd3-request';
 
 d3Request.json('../../../policies.json', function(error, policies) {
@@ -18,18 +19,19 @@ function ready(error, data) {
     outputPolicies(error, data.policies, data.categories);
     const cards = Array.from(document.querySelectorAll('.policies-list li'));
     const stack = Swing.Stack();
+    let activated = false;
+    let total = 1;
 
     // setup first two cards
     createCard(stack, cards.shift());
     createCard(stack, cards.shift());
 
-    const parties = ['Con', 'DUP', 'Green', 'Independent', 'LDem', 'Lab', 'PC', 'SDLP', 'SF', 'SNP', 'UKIP', 'UUP'];
+    const parties = ['Con', 'DUP', 'Green', 'LDem', 'Lab', 'PC', 'SDLP', 'SF', 'SNP', 'UKIP', 'UUP'];
 
     const userProfile = {
         'Con' : 0,
         'DUP' : 0,
         'Green' : 0,
-        'Independent': 0,
         'LDem': 0,
         'Lab': 0,
         'PC': 0,
@@ -43,6 +45,7 @@ function ready(error, data) {
     stack.on('throwout', function (e) {
         let doesUserAgree = true;
         let currentPolicy = e.target.dataset['policyId'];
+        total ++;
         if(e.throwDirection === 'LEFT') {
             doesUserAgree = false;
         }
@@ -55,11 +58,16 @@ function ready(error, data) {
                 }
             }
         });
-        console.log(userProfile);
+        // console.log(userProfile);
+        if (activated === false) {
+            const resultsButton = document.getElementsByClassName('results-button')[0]
+            resultsButton.style.display = 'block';
+            displayResults(userProfile, resultsButton, total);
+            activated = true;
+        }
         e.target.classList.add('out-of-deck');
         createCard(stack, cards.shift());
     });
-
 }
 
 function createCard(stack, el) {
@@ -68,4 +76,3 @@ function createCard(stack, el) {
         el.classList.add('card--active');
     }
 }
-
