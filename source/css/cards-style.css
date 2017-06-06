@@ -24,6 +24,12 @@ li {
     cursor: default;
 }
 
+img {
+    width: 30%;
+    display: block;
+    margin: auto;
+}
+
 .out-of-deck {
     display: none;
 }
