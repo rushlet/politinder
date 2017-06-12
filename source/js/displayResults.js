@@ -65,8 +65,14 @@ export default function displayResults(userProfile, partyTotals) {
         ul.appendChild(li);
     });
     const resultsContainer = document.getElementsByClassName('results-container')[0];
-    if (resultsContainer.firstChild) {
-        resultsContainer.removeChild(resultsContainer.firstChild);
+    if (resultsContainer.querySelector('.results-list')) {
+        const resultsList = resultsContainer.querySelector('.results-list');
+        console.log(resultsList);
+        resultsContainer.removeChild(resultsList);
     }
     resultsContainer.appendChild(ul);
+    resultsContainer.style.display = 'block';
+    resultsContainer.getElementsByClassName('results-container--close')[0].addEventListener("click", function() {
+        resultsContainer.style.display = "none";
+    }, false);
 }
