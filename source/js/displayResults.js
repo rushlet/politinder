@@ -34,11 +34,6 @@ const partyDetails = {
         'logo' : "../assets/img/party_logos/sdlp.png",
         'url'  : "https://www.sdlp.ie/"
     },
-    'SF' : {
-        'name' : 'Sinn Fein',
-        'logo' : "../assets/img/party_logos/sinn_fein.png",
-        'url'  : "https://www.sinnfein.ie/"
-    },
     'SNP' : {
         'name' : 'The Scotish National Party',
         'logo' : "../assets/img/party_logos/snp.png",
@@ -56,19 +51,13 @@ const partyDetails = {
     }
 }
 
-export default function displayResults(userProfile, resultsButton, total) {
-    resultsButton.addEventListener("click", function() {
-        console.log(userProfile);
-        createResultsDisplay(userProfile, total)
-    }, false);
-};
-
-function createResultsDisplay(userProfile, total) {
-    const sortedParties = Object.keys(userProfile).sort(function(a,b){return userProfile[a]-userProfile[b]});
-    console.log(sortedParties);
+export default function displayResults(userProfile, partyTotals) {
+    const sortedParties = Object.keys(userProfile).sort(function(a,b){return userProfile[b]-userProfile[a]});
     const ul = document.createElement('ul');
+    ul.setAttribute("class", "results-list");
     sortedParties.forEach(function(party) {
-        let partyScore = (userProfile[party] / total) * 100;
+        console.log(party, userProfile[party], partyTotals[party]);
+        let partyScore = Math.round((userProfile[party] / partyTotals[party]) * 100);
         let li = document.createElement('li');
         li.setAttribute('class', 'party-result')
         li.dataset['partyid'] = party;
