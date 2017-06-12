@@ -64,5 +64,9 @@ export default function displayResults(userProfile, partyTotals) {
         li.innerHTML = `<span class="party-name">${partyDetails[party].name} : ${partyScore}%</span>`;
         ul.appendChild(li);
     });
-    document.getElementsByClassName('results-container')[0].appendChild(ul);
+    const resultsContainer = document.getElementsByClassName('results-container')[0];
+    if (resultsContainer.firstChild) {
+        resultsContainer.removeChild(resultsContainer.firstChild);
+    }
+    resultsContainer.appendChild(ul);
 }
