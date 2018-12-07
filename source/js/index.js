@@ -1,5 +1,6 @@
 import * as Swing from 'swing';
-import outputPolicies from './policies.js'
+import outputPolicies from './policies.js';
+import displayResults from './displayResults.js'
 
 window.fetch('../../policies.json')
   .then(response => response.json())
