@@ -1,10 +1,5 @@
 import * as Swing from 'swing';
 import outputPolicies from './policies.js'
-<<<<<<< HEAD
-=======
-import displayResults from './displayResults.js'
-import * as d3Request from 'd3-request';
->>>>>>> f1f50106a52dc13e36ecbabacc2166851ef1b377
 
 window.fetch('../../policies.json')
   .then(response => response.json())
