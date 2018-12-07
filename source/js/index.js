@@ -1,5 +1,10 @@
 import * as Swing from 'swing';
 import outputPolicies from './policies.js'
+<<<<<<< HEAD
+=======
+import displayResults from './displayResults.js'
+import * as d3Request from 'd3-request';
+>>>>>>> f1f50106a52dc13e36ecbabacc2166851ef1b377
 
 window.fetch('../../policies.json')
   .then(response => response.json())
@@ -23,23 +28,36 @@ function ready(data) {
     outputPolicies(data.policies, data.categories);
     const cards = Array.from(document.querySelectorAll('.policies-list li'));
     const stack = Swing.Stack();
+    let activated = false;
+    let total = 0;
 
     // setup first two cards
     createCard(stack, cards.shift());
     createCard(stack, cards.shift());
 
-    const parties = ['Con', 'DUP', 'Green', 'Independent', 'LDem', 'Lab', 'PC', 'SDLP', 'SF', 'SNP', 'UKIP', 'UUP'];
+    const parties = ['Con', 'DUP', 'Green', 'LDem', 'Lab', 'PC', 'SDLP', 'SNP', 'UKIP', 'UUP'];
 
     const userProfile = {
         'Con' : 0,
         'DUP' : 0,
         'Green' : 0,
-        'Independent': 0,
         'LDem': 0,
         'Lab': 0,
         'PC': 0,
         'SDLP': 0,
-        'SF': 0,
+        'SNP': 0,
+        'UKIP': 0,
+        'UUP': 0
+    };
+
+    const partyTotals = {
+        'Con' : 0,
+        'DUP' : 0,
+        'Green' : 0,
+        'LDem': 0,
+        'Lab': 0,
+        'PC': 0,
+        'SDLP': 0,
         'SNP': 0,
         'UKIP': 0,
         'UUP': 0
@@ -54,17 +72,26 @@ function ready(data) {
         parties.forEach(function(party){
             if(data.policyAgreement[party]) {
                 if(data.policyAgreement[party][currentPolicy]) {
+                    partyTotals[party] ++;
                     if (data.policyAgreement[party][currentPolicy].agreementBin === doesUserAgree) {
                         userProfile[party] ++;
                     }
                 }
             }
         });
-        console.log(userProfile);
+        console.log(userProfile, partyTotals);
+        // console.log(userProfile);
+        if (activated === false) {
+            const resultsButton = document.getElementsByClassName('results-button')[0]
+            resultsButton.style.display = 'block';
+            resultsButton.addEventListener("click", function() {
+                displayResults(userProfile, partyTotals);
+            }, false);
+            activated = true;
+        }
         e.target.classList.add('out-of-deck');
         createCard(stack, cards.shift());
     });
-
 }
 
 function createCard(stack, el) {
