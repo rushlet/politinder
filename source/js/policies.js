@@ -19,6 +19,7 @@ export default function outputPolicies(error, policies, categories) {
     Object.keys(policies).forEach(key => {
         const policy = policies[key];
         let li = document.createElement('li');
+        li.setAttribute('class', 'policy-card')
         li.dataset['policyId'] = key;
         li.innerHTML = `<span class="card-title">${policies[key].name || key}</span>
             <div class="category-container">
