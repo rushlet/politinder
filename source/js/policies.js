@@ -1,4 +1,4 @@
-export default function outputPolicies(error, policies, categories) {
+export default function outputPolicies(policies, categories) {
     const categoryIcons = {
             "economy": "../assets/img/economy.png",
             "health": "../assets/img/health.png",

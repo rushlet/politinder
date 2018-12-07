@@ -1,21 +1,26 @@
 import * as Swing from 'swing';
 import outputPolicies from './policies.js'
-import * as d3Request from 'd3-request';
 
-d3Request.json('../../../policies.json', function(error, policies) {
-    d3Request.json('../../../categories.json', function(error, categories) {
-        d3Request.json('../../../average_mps.json', function(error, policyAgreement) {
-            ready(error, {
-                policies: policies,
-                categories: categories,
-                policyAgreement: policyAgreement
-            })
-        });
-    });
-});
+window.fetch('../../policies.json')
+  .then(response => response.json())
+      .then(policies => {
+          window.fetch('../../categories.json')
+          .then(response => response.json())
+              .then(categories => {
+                window.fetch('../../average_mps.json')
+                .then(response => response.json())
+                    .then(policyAgreement => {
+                        ready({
+                            policies: policies,
+                            categories: categories,
+                            policyAgreement: policyAgreement
+                        });
+                    });
+              });
+      });
 
-function ready(error, data) {
-    outputPolicies(error, data.policies, data.categories);
+function ready(data) {
+    outputPolicies(data.policies, data.categories);
     const cards = Array.from(document.querySelectorAll('.policies-list li'));
     const stack = Swing.Stack();
 
@@ -68,4 +73,3 @@ function createCard(stack, el) {
         el.classList.add('card--active');
     }
 }
-

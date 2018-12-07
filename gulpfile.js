@@ -24,4 +24,9 @@ gulp.task('js', function(){
 		.pipe(gulp.dest('compiled/js'));
 });
 
-gulp.task('default', ['html', 'css', 'js']);
+gulp.task('assets', function(){
+		return gulp.src('source/assets/**/*.*')
+		.pipe(gulp.dest('compiled/assets/'));
+});
+
+gulp.task('default', ['html', 'css', 'js', 'assets']);
