@@ -1,6 +1,7 @@
 import * as Swing from 'swing';
 import outputPolicies from './policies.js';
 import displayResults from './displayResults.js'
+import config from './config.js'
 
 window.fetch('../../policies.json')
   .then(response => response.json())
@@ -31,8 +32,6 @@ function ready(data) {
     createCard(stack, cards.shift());
     createCard(stack, cards.shift());
 
-    const parties = ['Con', 'DUP', 'Green', 'LDem', 'Lab', 'PC', 'SDLP', 'SNP', 'UKIP', 'UUP'];
-
     const userProfile = {
         'Con' : 0,
         'DUP' : 0,
@@ -46,18 +45,7 @@ function ready(data) {
         'UUP': 0
     };
 
-    const partyTotals = {
-        'Con' : 0,
-        'DUP' : 0,
-        'Green' : 0,
-        'LDem': 0,
-        'Lab': 0,
-        'PC': 0,
-        'SDLP': 0,
-        'SNP': 0,
-        'UKIP': 0,
-        'UUP': 0
-    };
+    const partyTotals = userProfile;
 
     stack.on('throwout', function (e) {
         let doesUserAgree = true;
@@ -65,7 +53,7 @@ function ready(data) {
         if(e.throwDirection === 'LEFT') {
             doesUserAgree = false;
         }
-        parties.forEach(function(party){
+        config.parties.forEach(function(party){
             if(data.policyAgreement[party]) {
                 if(data.policyAgreement[party][currentPolicy]) {
                     partyTotals[party] ++;

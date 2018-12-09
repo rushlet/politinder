@@ -58,6 +58,10 @@
 
 	var _displayResults2 = _interopRequireDefault(_displayResults);
 
+	var _config = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./config.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _config2 = _interopRequireDefault(_config);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -91,8 +95,6 @@
 	    createCard(stack, cards.shift());
 	    createCard(stack, cards.shift());
 
-	    var parties = ['Con', 'DUP', 'Green', 'LDem', 'Lab', 'PC', 'SDLP', 'SNP', 'UKIP', 'UUP'];
-
 	    var userProfile = {
 	        'Con': 0,
 	        'DUP': 0,
@@ -106,18 +108,7 @@
 	        'UUP': 0
 	    };
 
-	    var partyTotals = {
-	        'Con': 0,
-	        'DUP': 0,
-	        'Green': 0,
-	        'LDem': 0,
-	        'Lab': 0,
-	        'PC': 0,
-	        'SDLP': 0,
-	        'SNP': 0,
-	        'UKIP': 0,
-	        'UUP': 0
-	    };
+	    var partyTotals = userProfile;
 
 	    stack.on('throwout', function (e) {
 	        var doesUserAgree = true;
@@ -125,7 +116,7 @@
 	        if (e.throwDirection === 'LEFT') {
 	            doesUserAgree = false;
 	        }
-	        parties.forEach(function (party) {
+	        _config2.default.parties.forEach(function (party) {
 	            if (data.policyAgreement[party]) {
 	                if (data.policyAgreement[party][currentPolicy]) {
 	                    partyTotals[party]++;
@@ -22588,45 +22579,36 @@
 
 /***/ }),
 /* 17 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	exports.default = outputPolicies;
-	function outputPolicies(policies, categories) {
-	    var categoryIcons = {
-	        "economy": "../assets/img/economy.png",
-	        "health": "../assets/img/health.png",
-	        "immigration": "../assets/img/immigration.png",
-	        "education": "../assets/img/education.png",
-	        "tax-and-spending": "../assets/img/tax.png",
-	        "housing": "../assets/img/housing.png",
-	        "environment": "../assets/img/energy.png",
-	        "foreign-and-defense": "../assets/img/defence.png",
-	        "crime": "../assets/img/crime.png",
-	        "employment": "../assets/img/employment.png",
-	        "transport": "../assets/img/transport.png",
-	        "parliament": "../assets/img/parliament.png",
-	        "civil-rights": "../assets/img/civil_rights.png"
-	    };
 
+	var _config = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"config\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _config2 = _interopRequireDefault(_config);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function outputPolicies(policies, categories) {
 	    var ul = document.getElementsByClassName('policies-list')[0];
 	    Object.keys(policies).forEach(function (key) {
 	        var policy = policies[key];
 	        var li = document.createElement('li');
 	        li.setAttribute('class', 'policy-card');
 	        li.dataset['policyId'] = key;
-	        li.innerHTML = "<span class=\"card-title\">" + (policies[key].name || key) + "</span>\n            <div class=\"category-container\">\n                <span class=\"category-title\">" + categories[policies[key].category].name + "</span>\n                <img src=" + categoryIcons[policies[key].category] + " alt=\"" + policies[key].category + " icon\"/>\n            </div>";
+	        li.innerHTML = '<span class="card-title">' + (policies[key].name || key) + '</span>\n            <div class="category-container">\n                <span class="category-title">' + categories[policies[key].category].name + '</span>\n                <img src=' + _config2.default.categoryIcons[policies[key].category] + ' alt="' + policies[key].category + ' icon"/>\n            </div>';
 	        ul.appendChild(li);
 	    });
 	};
 
 /***/ }),
 /* 18 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -22634,58 +22616,12 @@
 	    value: true
 	});
 	exports.default = displayResults;
-	var partyDetails = {
-	    'Con': {
-	        'name': 'The Conservatives',
-	        'logo': "../assets/img/party_logos/conservatives1.png",
-	        'url': "https://www.conservatives.com"
-	    },
-	    'DUP': {
-	        'name': 'The Democratic Union Party',
-	        'logo': "../assets/img/party_logos/dup.png",
-	        'url': "http://www.mydup.com/"
-	    },
-	    'Green': {
-	        'name': 'The Green Party',
-	        'logo': "../assets/img/party_logos/green.png",
-	        'url': "https://www.greenparty.org.uk/"
-	    },
-	    'LDem': {
-	        'name': 'The Liberal Democrats',
-	        'logo': "../assets/img/party_logos/libdem.png",
-	        'url': "http://www.libdems.org.uk/"
-	    },
-	    'Lab': {
-	        'name': 'The Labour Party',
-	        'logo': "../assets/img/party_logos/labour1.png",
-	        'url': "http://www.labour.org.uk/index.php/home/"
-	    },
-	    'PC': {
-	        'name': 'Plaid Cymru',
-	        'logo': "../assets/img/party_logos/Plaid.png",
-	        'url': "http://www2.plaid.cymru/"
-	    },
-	    'SDLP': {
-	        'name': 'Social Democratic and Labour Party',
-	        'logo': "../assets/img/party_logos/sdlp.png",
-	        'url': "https://www.sdlp.ie/"
-	    },
-	    'SNP': {
-	        'name': 'The Scotish National Party',
-	        'logo': "../assets/img/party_logos/snp.png",
-	        'url': "https://www.snp.org/"
-	    },
-	    'UKIP': {
-	        'name': 'UK Independence Party',
-	        'logo': "../assets/img/party_logos/ukip.png",
-	        'url': "http://www.ukip.org/"
-	    },
-	    'UUP': {
-	        'name': 'Ulster Unionist Party',
-	        'logo': "../assets/img/party_logos/uup.jpg",
-	        'url': "https://www.uup.org/"
-	    }
-	};
+
+	var _config = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"config\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _config2 = _interopRequireDefault(_config);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function displayResults(userProfile, partyTotals) {
 	    var sortedParties = Object.keys(userProfile).sort(function (a, b) {
@@ -22699,7 +22635,7 @@
 	        var li = document.createElement('li');
 	        li.setAttribute('class', 'party-result');
 	        li.dataset['partyid'] = party;
-	        li.innerHTML = '<span class="party-name">' + partyDetails[party].name + ' : ' + partyScore + '%</span>';
+	        li.innerHTML = '<span class="party-name">' + _config2.default.partyDetails[party].name + ' : ' + partyScore + '%</span>';
 	        ul.appendChild(li);
 	    });
 	    var resultsContainer = document.getElementsByClassName('results-container')[0];
