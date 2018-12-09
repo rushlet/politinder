@@ -1,4 +1,4 @@
-import config from 'config';
+import config from './config';
 
 export default function outputPolicies(policies, categories) {
     const ul = document.getElementsByClassName('policies-list')[0];

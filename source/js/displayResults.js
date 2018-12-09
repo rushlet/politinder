@@ -1,4 +1,4 @@
-import config from 'config';
+import config from './config';
 
 export default function displayResults(userProfile, partyTotals) {
     const sortedParties = Object.keys(userProfile).sort(function(a,b){return userProfile[b]-userProfile[a]});

@@ -1,4 +1,4 @@
-export default const config = {
+export default {
   parties: ['Con', 'DUP', 'Green', 'LDem', 'Lab', 'PC', 'SDLP', 'SNP', 'UKIP', 'UUP'],
   partyDetails: {
     'Con' : {
