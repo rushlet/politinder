@@ -4,13 +4,13 @@ import displayResults from './displayResults.js'
 import config from './config.js'
 
 window.fetch('../../policies.json')
-  .then(response => response.json())
-      .then(policies => {
-          window.fetch('../../categories.json')
-          .then(response => response.json())
-              .then(categories => {
+    .then(response => response.json())
+    .then(policies => {
+        window.fetch('../../categories.json')
+            .then(response => response.json())
+            .then(categories => {
                 window.fetch('../../average_mps.json')
-                .then(response => response.json())
+                    .then(response => response.json())
                     .then(policyAgreement => {
                         ready({
                             policies: policies,
@@ -18,8 +18,8 @@ window.fetch('../../policies.json')
                             policyAgreement: policyAgreement
                         });
                     });
-              });
-      });
+            });
+    });
 
 function ready(data) {
     outputPolicies(data.policies, data.categories);
@@ -33,9 +33,9 @@ function ready(data) {
     createCard(stack, cards.shift());
 
     const userProfile = {
-        'Con' : 0,
-        'DUP' : 0,
-        'Green' : 0,
+        'Con': 0,
+        'DUP': 0,
+        'Green': 0,
         'LDem': 0,
         'Lab': 0,
         'PC': 0,
@@ -45,30 +45,41 @@ function ready(data) {
         'UUP': 0
     };
 
-    const partyTotals = userProfile;
+    const partyTotals = {
+        'Con': 0,
+        'DUP': 0,
+        'Green': 0,
+        'LDem': 0,
+        'Lab': 0,
+        'PC': 0,
+        'SDLP': 0,
+        'SNP': 0,
+        'UKIP': 0,
+        'UUP': 0
+    };
 
     stack.on('throwout', function (e) {
         let doesUserAgree = true;
         let currentPolicy = e.target.dataset['policyId'];
-        if(e.throwDirection === 'LEFT') {
+        if (e.throwDirection.toString().indexOf('LEFT') > -1) {
             doesUserAgree = false;
         }
-        config.parties.forEach(function(party){
-            if(data.policyAgreement[party]) {
-                if(data.policyAgreement[party][currentPolicy]) {
-                    partyTotals[party] ++;
+
+        config.parties.forEach(function (party) {
+            if (data.policyAgreement[party]) {
+                if (data.policyAgreement[party][currentPolicy]) {
+                    partyTotals[party]++;
                     if (data.policyAgreement[party][currentPolicy].agreementBin === doesUserAgree) {
-                        userProfile[party] ++;
+                        userProfile[party]++;
                     }
                 }
             }
         });
-        console.log(userProfile, partyTotals);
-        // console.log(userProfile);
+
         if (activated === false) {
             const resultsButton = document.getElementsByClassName('results-button')[0]
             resultsButton.style.display = 'block';
-            resultsButton.addEventListener("click", function() {
+            resultsButton.addEventListener("click", function () {
                 displayResults(userProfile, partyTotals);
             }, false);
             activated = true;
