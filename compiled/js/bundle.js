@@ -108,14 +108,26 @@
 	        'UUP': 0
 	    };
 
-	    var partyTotals = userProfile;
+	    var partyTotals = {
+	        'Con': 0,
+	        'DUP': 0,
+	        'Green': 0,
+	        'LDem': 0,
+	        'Lab': 0,
+	        'PC': 0,
+	        'SDLP': 0,
+	        'SNP': 0,
+	        'UKIP': 0,
+	        'UUP': 0
+	    };
 
 	    stack.on('throwout', function (e) {
 	        var doesUserAgree = true;
 	        var currentPolicy = e.target.dataset['policyId'];
-	        if (e.throwDirection === 'LEFT') {
+	        if (e.throwDirection.toString().indexOf('LEFT') > -1) {
 	            doesUserAgree = false;
 	        }
+
 	        _config2.default.parties.forEach(function (party) {
 	            if (data.policyAgreement[party]) {
 	                if (data.policyAgreement[party][currentPolicy]) {
@@ -126,8 +138,7 @@
 	                }
 	            }
 	        });
-	        console.log(userProfile, partyTotals);
-	        // console.log(userProfile);
+
 	        if (activated === false) {
 	            var resultsButton = document.getElementsByClassName('results-button')[0];
 	            resultsButton.style.display = 'block';
@@ -22707,11 +22718,14 @@
 	    var sortedParties = Object.keys(userProfile).sort(function (a, b) {
 	        return userProfile[b] - userProfile[a];
 	    });
+	    console.log('sorted parties: ', sortedParties);
 	    var ul = document.createElement('ul');
 	    ul.setAttribute("class", "results-list");
 	    sortedParties.forEach(function (party) {
-	        console.log(party, userProfile[party], partyTotals[party]);
-	        var partyScore = Math.round(userProfile[party] / partyTotals[party] * 100);
+	        console.log('party: ', party, 'user match: ', userProfile[party], 'party total: ', partyTotals[party]);
+	        var userMatch = userProfile[party] / partyTotals[party] ? userProfile[party] / partyTotals[party] : 0;
+	        var partyScore = Math.round(userMatch * 100);
+	        console.log('party score: ', partyScore);
 	        var li = document.createElement('li');
 	        li.setAttribute('class', 'party-result');
 	        li.dataset['partyid'] = party;

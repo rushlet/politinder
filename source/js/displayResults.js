@@ -1,12 +1,17 @@
 import config from './config';
 
 export default function displayResults(userProfile, partyTotals) {
-    const sortedParties = Object.keys(userProfile).sort(function(a,b){return userProfile[b]-userProfile[a]});
+    const sortedParties = Object.keys(userProfile).sort(function (a, b) {
+        return userProfile[b] - userProfile[a]
+    });
+    console.log('sorted parties: ', sortedParties)
     const ul = document.createElement('ul');
     ul.setAttribute("class", "results-list");
-    sortedParties.forEach(function(party) {
-        console.log(party, userProfile[party], partyTotals[party]);
-        let partyScore = Math.round((userProfile[party] / partyTotals[party]) * 100);
+    sortedParties.forEach(function (party) {
+        console.log('party: ', party, 'user match: ', userProfile[party], 'party total: ', partyTotals[party]);
+        const userMatch = (userProfile[party] / partyTotals[party]) ? (userProfile[party] / partyTotals[party]) : 0;
+        let partyScore = Math.round(userMatch * 100);
+        console.log('party score: ', partyScore)
         let li = document.createElement('li');
         li.setAttribute('class', 'party-result')
         li.dataset['partyid'] = party;
@@ -21,7 +26,7 @@ export default function displayResults(userProfile, partyTotals) {
     }
     resultsContainer.appendChild(ul);
     resultsContainer.style.display = 'block';
-    resultsContainer.getElementsByClassName('results-container--close')[0].addEventListener("click", function() {
+    resultsContainer.getElementsByClassName('results-container--close')[0].addEventListener("click", function () {
         resultsContainer.style.display = "none";
     }, false);
 }
